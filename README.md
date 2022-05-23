@@ -32,5 +32,8 @@ Technical Requirements
     - Use Math.random() for CPU
 
 Wireframes:
+![start](https://user-images.githubusercontent.com/101136389/169831210-dba3dbe4-7b1a-4a63-896d-9c94e6f9d9e4.jpg)
 
+![game over](https://user-images.githubusercontent.com/101136389/169831236-ac84088a-dacd-4dd5-b3a8-51f7c5b53cd2.jpg)
 
+![reset](https://user-images.githubusercontent.com/101136389/169831248-431ab100-8f43-4034-8f7d-b1b32f6d9e8d.jpg)
