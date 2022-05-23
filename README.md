@@ -31,6 +31,12 @@ Technical Requirements
         - this should be 4 functions: diagnal /, diagnal \, up&down, left&right
     - Use Math.random() for CPU
 
+technologies used
+-HTML
+-CSS
+-JAVASCRIPT
+CANVAS
+
 Wireframes:
 ![start](https://user-images.githubusercontent.com/101136389/169831210-dba3dbe4-7b1a-4a63-896d-9c94e6f9d9e4.jpg)
 
