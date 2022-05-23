@@ -9,7 +9,7 @@ The rules are simple: Try to build a row of four checkers while keeping your opp
 
 
 User story:
-    - Startup page with the following:
+    -Startup page with the following:
         - Big Connect 4 title at the top of the page that is removed when the game is started
         - Two buttons to choose to play 1Pv2P, or 1PvCPU.
         - Start button at the bottom of the screen
