@@ -15,14 +15,20 @@ currentPlayerTurn = () => `${currentPlayer}'s turn...`
 
 function startPlayerVsPc() {
 //    alert("Player vs PC")
+    playerVsPc.classList.add('hide')
+    playerVsPlayer.classList.add("hide")
 }
 
 function startPlayerVsPlayer(){
  //   alert('Player vs Player')
+    playerVsPc.classList.add('hide')
+    playerVsPlayer.classList.add('hide')
 }
 
 function startPlayAgain() {
  //   alert('Play Again!')
+    playerVsPc.classList.remove('hide')
+    playerVsPlayer.classList.remove('hide')
 }
 
 function main() {

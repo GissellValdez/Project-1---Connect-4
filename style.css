@@ -23,3 +23,7 @@
     border: 2px solid rgb(13, 52, 212);
     border-radius: 50%;
 }
+
+.hide {
+    display: none;
+}
