@@ -1,0 +1,26 @@
+.header{
+    text-align: center;
+
+}
+
+
+.board {
+    background-color: green;
+    width: 650px;
+    height: 600px;
+    padding: 1.5rem;
+    display: grid;
+    align-content: center;
+    grid-template-columns: repeat(7, auto);
+    align-items: center;
+    justify-items: center;  
+    
+}
+
+.slot {
+    width: 90px;
+    height: 90px;
+    background: white;
+    border: 2px solid rgb(13, 52, 212);
+    border-radius: 50%;
+}

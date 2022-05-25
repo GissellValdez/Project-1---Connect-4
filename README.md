@@ -28,7 +28,7 @@ Technical Requirements
     - Instead of hard coding the winning combinations (which would be alot):
         - create functions to check for 4 straight same color connects
         - in main listener function, run these functions everything a player makes a move to check for a win
-        - this should be 4 functions: diagnal /, diagnal \, up&down, left&right
+        - this should be 4 functions: diagonal /, diagonal \, up&down, left&right
     - Use Math.random() for CPU
 
 technologies used
