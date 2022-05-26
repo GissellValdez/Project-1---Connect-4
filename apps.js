@@ -1,27 +1,23 @@
-//get the buttons from the html
+//get the buttons and board from the html
 const playerVsPc = document.getElementById('pvc')
 const playerVsPlayer = document.getElementById('pvp')
 const playAgain = document.getElementById('restart')
 const gameBoard = document.getElementById('board')
 const gameSlots = document.getElementsByClassName('slot')
-
 //get the top row of slots, aka the selector slots
 const slotSelector = document.getElementsByClassName('slotSelector')
 //get the rest of the slots
 const slots = document.getElementsByClassName('slot')
 
 //variables
-let playerTurn = 1
-const player1Color = null
-const player2Color = null
+let currentPlayer = 1 // 1 for player 1, 2 for cpu/player2, starting with Player 1.
 let gameActive = true
-let currentBoardGame = []
 
-;(winMessage = () => ` ${currentPlayer} won!`),
-	(tieMessage = () => `Its a tie!`),
-	(currentPlayerTurn = () => `${currentPlayer}'s turn...`)
+//variables for stretch goal of having players pick their own colors
+//const player1Color = null
+//const player2Color = null
 
-//listener for when the board is clicked. next step is to break this down to when the slotSelector row is clicked only
+//listener for when the board is clicked. 
 function listeners() {
 	document
 		.querySelector('div.slotSelector')
@@ -72,34 +68,50 @@ function clickSlotSelector() {
 			completePlayerMoveAfterClickingSlotSelector(i)
 		})
 	}
-	// TO DO: add the checker image
 }
 
 function completePlayerMoveAfterClickingSlotSelector(slotSelectedColumn) {
-	//let bottomSlotOfCurrentSelectedColumn = slotSelectedColumn + 35
-
 	for (let i = 42; i >= 0; i = i - 7) {
 		let bottomSlotOfCurrentSelectedColumn = slotSelectedColumn + i
-		if (
-			gameBoard.children[bottomSlotOfCurrentSelectedColumn].classList == 'slot'
-		) {
-			//slots[bottomSlotOfCurrentSelectedColumn].classList.add('takenSlotByPlayer');
-			//slots[bottomSlotOfCurrentSelectedColumn].classList.remove('slot');
-			gameBoard.children[bottomSlotOfCurrentSelectedColumn].classList.add(
-				'takenSlotByPlayer'
-			)
-			gameBoard.children[bottomSlotOfCurrentSelectedColumn].classList.remove(
+		if (currentPlayer == 1) {
+			if (
+				gameBoard.children[bottomSlotOfCurrentSelectedColumn].classList ==
 				'slot'
-			)
-			//alert(`It works, Coordinated ${slotSelectedColumn},${bottomSlotOfCurrentSelectedColumn}, ${gameBoard.children[bottomSlotOfCurrentSelectedColumn].classlist}`)
-			break
-		} /* else {
-            //alert(`It didnt work: Coordinated ${slotSelectedColumn},${bottomSlotOfCurrentSelectedColumn}`)
-            gameBoard.children[bottomSlotOfCurrentSelectedColumn].classList.add("takenSlotByPlayer");
-            gameBoard.children[bottomSlotOfCurrentSelectedColumn].classList.remove("slot");
-            
-            break;
-        }*/
+			) {
+				gameBoard.children[bottomSlotOfCurrentSelectedColumn].classList.add(
+					'takenSlotByPlayer'
+				)
+				gameBoard.children[bottomSlotOfCurrentSelectedColumn].classList.remove(
+					'slot'
+				)
+				changePlayerTurn()
+				//alert(`It works, Coordinated ${slotSelectedColumn},${bottomSlotOfCurrentSelectedColumn}, ${gameBoard.children[bottomSlotOfCurrentSelectedColumn].classlist}`)
+				break
+			}
+		} else {
+			if (
+				gameBoard.children[bottomSlotOfCurrentSelectedColumn].classList ==
+				'slot'
+			) {
+				gameBoard.children[bottomSlotOfCurrentSelectedColumn].classList.add(
+					'takenSlotByOther'
+				)
+				gameBoard.children[bottomSlotOfCurrentSelectedColumn].classList.remove(
+					'slot'
+				)
+				changePlayerTurn()
+				//alert(`It works, Coordinated ${slotSelectedColumn},${bottomSlotOfCurrentSelectedColumn}, ${gameBoard.children[bottomSlotOfCurrentSelectedColumn].classlist}`)
+				break
+			}
+		}
+	}
+
+	function changePlayerTurn() {
+		if (currentPlayer == 1) {
+			currentPlayer = 2
+		} else {
+			currentPlayer = 1
+		}
 	}
 }
 
