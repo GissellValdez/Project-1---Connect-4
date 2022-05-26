@@ -56,12 +56,8 @@
     border: 2px solid rgb(63, 5, 237);
     border-radius: 50%;
 }
-
-button {
+button{
     background: green;
-    color: blanchedalmond;
-    border: 2px solid yellow;
-    text-align: center;
-    
-
+    border: 3px solid yellow;
+    color:white;
 }
