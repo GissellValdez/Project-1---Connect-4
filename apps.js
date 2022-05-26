@@ -1,3 +1,58 @@
+
+let winningArray = [
+	[41, 40, 39, 38],
+	[7, 8, 9, 10],
+	[34, 33, 32, 31],
+	[14, 15, 16, 17],
+	[27, 26, 25, 24],
+	[21, 22, 23, 24],
+	[20, 19, 18, 17],
+	[28, 29, 30, 31],
+	[13, 12, 11, 10],
+	[35, 36, 37, 38],
+	[41, 34, 27, 20],
+	[40, 33, 26, 19],
+	[39, 32, 25, 18],
+	[38, 31, 24, 17],
+	[37, 30, 23, 16],
+	[36, 29, 22, 15],
+	[35, 28, 21, 14],
+	[41, 33, 25, 17],
+	[7, 15, 23, 31],
+	[34, 26, 18, 10],
+	[14, 22, 30, 38],
+	[27, 19, 11, 3],
+	[35, 29, 23, 17],
+	[28, 22, 16, 10],
+	[13, 19, 25, 31],
+	[21, 15, 9, 3],
+	[20, 26, 32, 38],
+	[36, 30, 24, 18],
+	[37, 31, 25, 19],
+	[39, 31, 23, 15],
+	[40, 32, 24, 16],
+	[8, 16, 24, 32],
+	[11, 7, 23, 29],
+	[12, 18, 24, 30],
+	[8, 9, 10, 11],
+	[12, 11, 10, 9],
+	[15, 16, 17, 18],
+	[19, 18, 17, 16],
+	[22, 23, 24, 25],
+	[26, 25, 24, 23],
+	[29, 30, 31, 32],
+	[33, 32, 31, 30],
+	[36, 37, 38, 39],
+	[40, 39, 38, 37],
+	[7, 14, 21, 28],
+	[8, 15, 22, 29],
+	[9, 16, 23, 30],
+	[10, 17, 24, 31],
+	[11, 18, 25, 32],
+	[12, 19, 26, 33],
+	[13, 20, 27, 34],
+] 
+
 //---------------------------- DOM ----------------------------//
 
 //get the buttons and board from the html
@@ -110,6 +165,7 @@ function completePlayerMoveAfterSelectingSlot(slotSelectedColumn) {
 			if (gameBoard.children[bottomRowOfColumn].classList == 'slot') {
 				gameBoard.children[bottomRowOfColumn].classList.add('takenSlotByPlayer')
 				gameBoard.children[bottomRowOfColumn].classList.remove('slot')
+                //checkForAWin()
 				changePlayerTurn()
 				//alert(`It works, Coordinated ${slotSelectedColumn},${bottomSlotOfCurrentSelectedColumn}, ${gameBoard.children[bottomSlotOfCurrentSelectedColumn].classlist}`)
 				break
@@ -130,7 +186,9 @@ function completePlayerMoveAfterSelectingSlot(slotSelectedColumn) {
 
 //this function changes the player's turn from 1 to 2 and 2 to 1 whenever a player goes
 function changePlayerTurn() {
-	if (currentPlayer == 1) {
+	
+    
+    if (currentPlayer == 1) {
 		//if current turn belongs to Player 1, update the variable to change to Player2/CPU
 		currentPlayer = 2
 	} else {
@@ -154,5 +212,8 @@ function makeCpuRandomTurn() {
 		}
 	}
 }
+
+
+
 
 main()
