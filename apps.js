@@ -72,7 +72,9 @@ const slots = document.getElementsByClassName('slot')
 
 // 1 for player 1, 2 for cpu/player2, starting with Player 1.
 let currentPlayer = 1
-let gameActive = true
+//activate the game board depending if true or false. start at false until a game mode is chosen
+let gameActive = false
+//activate the game mode based on which button is clicked
 let playAgainstCpu = false
 let playAgainstPlayer2 = false
 //variables for stretch goal of having players pick their own colors
@@ -101,8 +103,11 @@ function startPlayerVsPc() {
 	playerVsPc.classList.add('hide')
 	playerVsPlayer.classList.add('hide')
 
-    //set the variable to true so that the CPU's turn can be automated in the main listener
+	//set the variable to true so that the CPU's turn can be automated in the main listener
 	playAgainstCpu = true
+
+	//activate the game board
+	gameActive = true
 }
 
 function startPlayerVsPlayer() {
@@ -113,6 +118,9 @@ function startPlayerVsPlayer() {
 
 	//TO DO: add more logic for PvP
 	playAgainstPlayer2 = true
+
+	//activate the game board
+	gameActive = true
 }
 
 function startPlayAgain() {
@@ -138,19 +146,25 @@ function startPlayAgain() {
 
     // reset the CPU game mode to false
     playAgainstCpu = false
+
+	//suspend the game board
+	gameActive = false
 }
 
 //this is the function for when a slotSelector is chosen
 function clickSlotSelector() {
     // for loop to add an event listener to the selector slots 
     // when clicked, runs the functions to perform player/cpu turns
-	for (let i = 0; i < slotSelector.length; i++) {
-		slotSelector[i].addEventListener('click', (e) => {
-			//alert('selector clicked') //alert works
-			completePlayerMoveAfterSelectingSlot(i)
-			makeCpuRandomTurn()
-		})
-	}
+		for (let i = 0; i < slotSelector.length; i++) {
+			slotSelector[i].addEventListener('click', (e) => {
+				//alert('selector clicked') //alert works
+				//only add the event listener if the game is active.
+				if (gameActive == true) {
+					completePlayerMoveAfterSelectingSlot(i)
+					makeCpuRandomTurn()
+				} else { alert('Please choose a game mode to start playing.')}
+			})
+		}
 }
 
 function completePlayerMoveAfterSelectingSlot(slotSelectedColumn) {
@@ -186,8 +200,6 @@ function completePlayerMoveAfterSelectingSlot(slotSelectedColumn) {
 
 //this function changes the player's turn from 1 to 2 and 2 to 1 whenever a player goes
 function changePlayerTurn() {
-	
-    
     if (currentPlayer == 1) {
 		//if current turn belongs to Player 1, update the variable to change to Player2/CPU
 		currentPlayer = 2
@@ -214,6 +226,5 @@ function makeCpuRandomTurn() {
 }
 
 
-
-
+//start the game
 main()
