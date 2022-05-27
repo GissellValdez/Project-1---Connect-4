@@ -34,7 +34,6 @@ technologies used
 -HTML
 -CSS
 -JAVASCRIPT
-- DOM
 
 Wireframes:
 ![start](https://user-images.githubusercontent.com/101136389/169831210-dba3dbe4-7b1a-4a63-896d-9c94e6f9d9e4.jpg)
