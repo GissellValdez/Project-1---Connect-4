@@ -204,6 +204,8 @@ function clickSlotSelector() {
 				if (gameActive == true) {
 					completePlayerMoveAfterSelectingSlot(i)
 					makeCpuRandomTurn()
+					//call the function to check the board for a win
+					checkBoardForWin()
 				} else { alert('Please choose a game mode to start playing.')}
 			})
 		}
@@ -228,11 +230,6 @@ function completePlayerMoveAfterSelectingSlot(slotSelectedColumn) {
 				currentGamesBoard[(bottomRowOfColumn - 7)] = currentPlayer
 				//console.log(`${currentGamesBoard}`)
 
-				//call the function to check the board for a win
-				checkBoardForWin()
-
-				//call the function to change the player turn after the move is done
-				changePlayerTurn()
 				//alert(`It works, Coordinated ${slotSelectedColumn},${bottomSlotOfCurrentSelectedColumn}, ${gameBoard.children[bottomSlotOfCurrentSelectedColumn].classlist}`)
 				break
 			}
@@ -248,17 +245,15 @@ function completePlayerMoveAfterSelectingSlot(slotSelectedColumn) {
 				//need to correct this by - 7. 7 because there are 7 columns.
 				currentGamesBoard[bottomRowOfColumn - 7] = currentPlayer
 				//console.log(`${currentGamesBoard}`)
-				
-				//call the function to check the board for a win
-				checkBoardForWin()
 
-				//call the function to change the player turn after the move is done
-				changePlayerTurn()
 				//alert(`It works, Coordinated ${slotSelectedColumn},${bottomSlotOfCurrentSelectedColumn}, ${gameBoard.children[bottomSlotOfCurrentSelectedColumn].classlist}`)
 				break
 			}
 		}
 	}
+
+	//call the function to change the player turn after the move is done
+	changePlayerTurn()
 }
 
 //this function changes the player's turn from 1 to 2 and 2 to 1 whenever a player goes
@@ -315,6 +310,11 @@ function checkBoardForWin(){
 		) {
 			//alert that player 1 has won
 			alert('Player One Wins! Play Again')
+			//make the game inactive so that no more moves are made
+			gameActive = false
+			//exit the for loop so the game doesn't continue looking for more winning combo.
+			//also if the player wins with 2 combos the alert will go out twice. the break prevents that
+			break;
 		} else if (
 			currentGamesBoard[connect1] +
 				currentGamesBoard[connect2] +
@@ -329,6 +329,11 @@ function checkBoardForWin(){
 				//alert that player2 has won if you are in player vs player game mode
 				alert('Player Two Wins! Play Again')
 			}
+			//make the game inactive so that no more moves are made
+			gameActive = false
+			//exit the for loop so the game doesn't continue looking for more winning combo.
+			//also if the player wins with 2 combos the alert will go out twice. the break prevents that
+			break;
 		}
 	}
 }
