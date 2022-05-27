@@ -1,11 +1,11 @@
 .header {
     text-align: center;
-
 }
 
 .canvas {
     display: flex;
     justify-content: center;
+    
 }
 
 .board {
@@ -56,8 +56,20 @@
     border: 2px solid rgb(63, 5, 237);
     border-radius: 50%;
 }
-button{
-    background: green;
+.buttonTray{
+    background: rgb(41, 66, 154);
     border: 3px solid yellow;
     color:white;
+    width: 850px;
+    text-align: center;
+    margin: auto;
+}
+button{
+    background: rgb(250, 49, 49);
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 15px;
+    font-weight: bold;
+    border: 3px solid green;
+    padding: 7px;
 }
