@@ -17,9 +17,8 @@ User story:
     - Have Player One (red) start a game go first
     - To make a move, player must click on a column. to let their disk drop to the bottom most available row.
     - To win, match 4 of the same colored checker in a row diagnally, up/downward, or sideways.
-        - The checker (with player's color) should be at the top of the screen
     - Game ends when either a player wins, or when all checker slots are full without there being a winner.
-    - Reset button at the top to reset the game.
+    - Reset button at the bottom to reset the game.
    
 
 Technical Requirements
@@ -33,6 +32,8 @@ technologies used
 -HTML
 -CSS
 -JAVASCRIPT
+-DOM
+
 
 Wireframes:
 ![start](https://user-images.githubusercontent.com/101136389/169831210-dba3dbe4-7b1a-4a63-896d-9c94e6f9d9e4.jpg)
